@@ -190,7 +190,13 @@
 	 (define/public (pause)
 	   (if (command "pause") #t (handle-error)))
 
-	 ;;next
+     ;;toggle
+   (define/public (toggle)
+     (if (equal? (list-ref (if (command "status") (fetch-response) (handle-error)) 8) "state: play")
+     (command "pause")
+     (command "play")))
+
+   	 ;;next
 	 (define/public (next)
 	   (if (command "next") #t (handle-error)))
 
