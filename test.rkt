@@ -2,10 +2,12 @@
 
 #lang racket
 
-(require "../mpdclient/obj-main.rkt")
+(require "obj-main.rkt")
 
 (define mpd (new mpd-client%))
 (define conn (send mpd create-connection))
+
+(send mpd toggle)
 
 ;;(send mpd mpd-list "title" "album" "EP")
 ;;(displayln (send mpd mpd-list "title" "album" "Interstate 8" "artist" "Modest Mouse" ))
